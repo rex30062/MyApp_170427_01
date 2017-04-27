@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(MainActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
+                    MyApplication app=(MyApplication) getApplication();
+                    app.uid = task.getResult().getUser().getUid();
                 }
                 else{
                     Toast.makeText(MainActivity.this, "登入失敗", Toast.LENGTH_SHORT).show();
